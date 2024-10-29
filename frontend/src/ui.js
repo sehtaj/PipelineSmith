@@ -10,6 +10,11 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
+import { BranchNode } from './nodes/customNodes/branchNode';
+import { AggregatorNode } from './nodes/customNodes/aggregatorNode';
+import { DisplayNode } from './nodes/customNodes/displayNode';
+import { InputCollectorNode } from './nodes/customNodes/inputCollectorNode';
+import { TransformerNode } from './nodes/customNodes/transformerNode';
 
 import 'reactflow/dist/style.css';
 
@@ -20,6 +25,12 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+
+  branch: BranchNode,
+  aggregator: AggregatorNode,
+  display: DisplayNode,
+  inputCollector: InputCollectorNode,
+  transformer: TransformerNode,
 };
 
 const selector = (state) => ({
