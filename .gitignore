@@ -1,0 +1,47 @@
+# Ignore node_modules - all project dependencies
+node_modules/
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore cache directories and files
+.cache/
+tmp/
+.vscode/
+.idea/
+.DS_Store
+
+# Ignore log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore environmental variables
+.env
+.env.local
+.env.*.local
+
+# Ignore public generated files
+public/*.map
+
+# Ignore any files related to Mac OS
+Thumbs.db
+.DS_Store
+
+# Ignore coverage files if you use code coverage tools
+coverage/
+
+# Ignore Tailwind and PostCSS cache files
+tailwind.config.js.backup
+tailwindcss.lock
+
+# Ignore generated files
+*.css.map
+*.css.d.ts
+*.css.d.ts.map
+
+# Ignore local development files
+*.local
+
