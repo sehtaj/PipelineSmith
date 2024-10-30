@@ -27,7 +27,7 @@ const BaseNode = ({
   );
   const [type, setType] = useState(data.type || 'Text');
   const [anchorEl, setAnchorEl] = useState(null);
-  const [hover, setHover] = useState(false); // State for hover effect
+  const [hover, setHover] = useState(false);
 
   const handleDropdownClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -51,12 +51,12 @@ const BaseNode = ({
         id={`${id}-${handle.id}`}
         style={{
           top: handle.position,
-          backgroundColor: '#ffffff', // Inner circle color (white)
-          width: '10px', // Size of the inner circle
+          backgroundColor: '#ffffff',
+          width: '10px',
           height: '10px',
-          borderRadius: '50%', // Makes it circular
-          border: '1px solid #6d28d9', // Purple outline color
-          boxSizing: 'border-box', // Ensures the border is outside the inner circle
+          borderRadius: '50%',
+          border: '1px solid #6d28d9',
+          boxSizing: 'border-box',
         }}
       />
     ));
@@ -78,8 +78,8 @@ const BaseNode = ({
           boxShadow: '0px 6px 16px rgba(0, 0, 0, 0.15)',
         },
       }}
-      onMouseEnter={() => setHover(true)} // Set hover to true on mouse enter
-      onMouseLeave={() => setHover(false)} // Set hover to false on mouse leave
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
       <Box display="flex" alignItems="center" mb={3}>
         {/* Change icon color based on hover state */}
@@ -90,7 +90,7 @@ const BaseNode = ({
         <Typography
           variant="subtitle2"
           fontWeight="bold"
-          color={hover ? '#7c3aed' : '#8a8a8a'} // Change color based on hover state
+          color={hover ? '#7c3aed' : '#8a8a8a'}
           ml={1}
         >
           {label}

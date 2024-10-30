@@ -24,24 +24,24 @@ export const DraggableNode = ({ type, label }) => {
         display: 'flex',
         alignItems: 'center',
         borderRadius: '12px',
-        border: '1px solid #dcdcdc', // Light border
-        backgroundColor: '#f9f9f9', // Light background color
+        border: '1px solid #dcdcdc',
+        backgroundColor: '#f9f9f9',
         justifyContent: 'center',
         flexDirection: 'column',
         padding: '8px',
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', // Light shadow for a subtle 3D effect
-        color: '#5c5c5c', // Text color
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+        color: '#5c5c5c',
         transition: 'transform 0.2s, box-shadow 0.2s, background-color 0.2s',
       }}
       draggable
       // Adding hover styles
       onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = '#ede7f6'; // Light purple background on hover
-        e.currentTarget.style.boxShadow = '0px 6px 12px rgba(0, 0, 0, 0.15)'; // Enhanced shadow on hover
+        e.currentTarget.style.backgroundColor = '#ede7f6';
+        e.currentTarget.style.boxShadow = '0px 6px 12px rgba(0, 0, 0, 0.15)';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = '#f9f9f9'; // Reset background color
-        e.currentTarget.style.boxShadow = '0px 4px 8px rgba(0, 0, 0, 0.1)'; // Reset shadow
+        e.currentTarget.style.backgroundColor = '#f9f9f9';
+        e.currentTarget.style.boxShadow = '0px 4px 8px rgba(0, 0, 0, 0.1)';
       }}
     >
       <Icon sx={{ marginBottom: '4px', color: '#6d28d9' }}>

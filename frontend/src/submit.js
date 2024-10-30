@@ -3,7 +3,10 @@ import { Button, Box, Snackbar, Alert } from '@mui/material';
 import { useStore } from './store';
 
 export const SubmitButton = () => {
-  const { nodes, edges } = useStore((state) => ({ nodes: state.nodes, edges: state.edges }));
+  const { nodes, edges } = useStore((state) => ({
+    nodes: state.nodes,
+    edges: state.edges,
+  }));
   const [alertData, setAlertData] = useState(null);
   const [open, setOpen] = useState(false);
 
@@ -20,14 +23,16 @@ export const SubmitButton = () => {
         },
         body: JSON.stringify({ nodes, edges }),
       });
-      
+
       if (!response.ok) {
         throw new Error('Failed to submit pipeline data');
       }
 
       const data = await response.json();
-      setAlertData(`Nodes: ${data.num_nodes}, Edges: ${data.num_edges}, DAG: ${data.is_dag ? "Yes" : "No"}`);
-      setOpen(true); 
+      setAlertData(
+        `Nodes: ${data.num_nodes}, Edges: ${data.num_edges}, DAG: ${data.is_dag ? 'Yes' : 'No'}`
+      );
+      setOpen(true);
     } catch (error) {
       console.error('Error:', error);
       setAlertData('An error occurred while submitting the pipeline.');
@@ -39,7 +44,7 @@ export const SubmitButton = () => {
     <Box display="flex" alignItems="center" justifyContent="center" mt={2}>
       <Button
         variant="contained"
-        onClick={handleSubmit} 
+        onClick={handleSubmit}
         sx={{
           backgroundColor: '#6d28d9',
           color: '#ffffff',
@@ -59,20 +64,20 @@ export const SubmitButton = () => {
       </Button>
       <Snackbar
         open={open}
-        autoHideDuration={6000} 
+        autoHideDuration={6000}
         onClose={handleClose}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }} // Center the Snackbar
-        sx={{ maxWidth: '80%' }} // Make the Snackbar wider
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        sx={{ maxWidth: '80%' }}
       >
         <Alert
           onClose={handleClose}
-          severity={alertData?.includes("error") ? "error" : "success"}
+          severity={alertData?.includes('error') ? 'error' : 'success'}
           sx={{
             backgroundColor: '#7c3aed',
             color: '#ffffff',
             fontWeight: 'bold',
             padding: '20px',
-            fontSize: '1.1rem', // Larger text for visibility
+            fontSize: '1.1rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

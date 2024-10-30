@@ -120,18 +120,16 @@ export const PipelineUI = () => {
           proOptions={proOptions}
           snapGrid={[gridSize, gridSize]}
           connectionLineType="smoothstep"
-          // Make the connection preview line dotted
           connectionLineStyle={{
-            stroke: '#7c3aed', // Color of the line
-            strokeWidth: 2, // Thickness of the line
-            strokeDasharray: '4 2', // Makes the line dotted: '4' is the length of the dash, '2' is the gap
+            stroke: '#7c3aed',
+            strokeWidth: 2,
+            strokeDasharray: '4 2',
           }}
-          // Make existing edges dotted by default
           edgeOptions={{
             style: {
               stroke: '#7c3aed',
               strokeWidth: 2,
-              strokeDasharray: '4 2', // Dotted style for the edges
+              strokeDasharray: '4 2',
             },
           }}
         >

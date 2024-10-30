@@ -21,7 +21,11 @@ export const TextNode = (props) => {
     }
 
     const variablePattern = /{{\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\s*}}/g;
-    const foundVariables = [...new Set([...newText.matchAll(variablePattern)].map(match => match[1]))];
+    const foundVariables = [
+      ...new Set(
+        [...newText.matchAll(variablePattern)].map((match) => match[1])
+      ),
+    ];
     setVariables(foundVariables);
   };
 
@@ -66,7 +70,8 @@ export const TextNode = (props) => {
             sx={{
               color: '#9e9e9e',
               position: 'absolute',
-              left: variable.length <= 6 ? '-34px' : `-${variable.length * 6}px`,
+              left:
+                variable.length <= 6 ? '-34px' : `-${variable.length * 6}px`,
               transform: 'translateY(14px)',
               whiteSpace: 'nowrap',
             }}
@@ -93,11 +98,11 @@ export const TextNode = (props) => {
           onChange={handleTextChange}
           InputProps={{
             sx: {
-              minHeight: '50px', // Adjusted to ensure enough height
+              minHeight: '50px',
               paddingTop: '8px',
               paddingBottom: '8px',
-              overflowY: 'auto', // Enable scrolling
-              resize: 'none', // Disable manual resizing
+              overflowY: 'auto',
+              resize: 'none',
             },
           }}
           sx={{
