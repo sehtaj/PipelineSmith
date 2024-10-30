@@ -1,5 +1,6 @@
 // DisplayNode.js
 import BaseNode from '../baseNode';
+import { Typography, Box } from '@mui/material';
 
 export const DisplayNode = (props) => (
   <BaseNode
@@ -8,6 +9,17 @@ export const DisplayNode = (props) => (
     showNameType={false}
     outputHandles={[{ id: 'output', position: '50%' }]}
   >
-    <div>Displays results</div>
+    <Box sx={{ mt: 1 }}>
+      <Typography
+        variant="caption"
+        sx={{
+          fontWeight: 400,
+          color: '#9e9e9e',
+          textAlign: 'left',
+        }}
+      >
+        Diplays Results.
+      </Typography>
+    </Box>{' '}
   </BaseNode>
 );

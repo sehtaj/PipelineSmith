@@ -1,5 +1,6 @@
 // LLMNode.js
 import BaseNode from './baseNode';
+import { Typography, Box } from '@mui/material';
 
 export const LLMNode = (props) => (
   <BaseNode
@@ -12,6 +13,17 @@ export const LLMNode = (props) => (
     ]}
     outputHandles={[{ id: 'response', position: '50%' }]}
   >
-    <div><span>This is an LLM.</span></div>
+    <Box sx={{ mt: 1 }}>
+      <Typography
+        variant="caption"
+        sx={{
+          fontWeight: 400,
+          color: '#9e9e9e',
+          textAlign: 'left',
+        }}
+      >
+        This is an LLM{' '}
+      </Typography>
+    </Box>{' '}
   </BaseNode>
 );
