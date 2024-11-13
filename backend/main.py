@@ -8,7 +8,7 @@ app = FastAPI()
 # Allow CORS for the frontend origin
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Update with your frontend URL if different
+    allow_origins=["https://pipeline-smith.vercel.app","http://localhost:3000"],  # Update with your frontend URL if different
     allow_credentials=True,
     allow_methods=["*"],  # Allows all HTTP methods, including OPTIONS
     allow_headers=["*"],
