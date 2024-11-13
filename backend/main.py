@@ -22,12 +22,33 @@ class Pipeline(BaseModel):
 @app.get('/')
 def read_root():
     return {'Ping': 'Pong'}
-
 @app.post('/pipelines/parse')
 async def parse_pipeline(pipeline: Pipeline):
     num_nodes = len(pipeline.nodes)
     num_edges = len(pipeline.edges)
-    print(f"Number of nodes received: {num_nodes}")
+
+    # Handle empty nodes or edges
+    if num_nodes == 0 and num_edges == 0:
+        return {
+            'num_nodes': num_nodes,
+            'num_edges': num_edges,
+            'is_dag': True,
+            'message': 'No nodes or edges provided.'
+        }
+    elif num_nodes == 0:
+        return {
+            'num_nodes': num_nodes,
+            'num_edges': num_edges,
+            'is_dag': True,
+            'message': 'No nodes provided, but edges are ignored.'
+        }
+    elif num_edges == 0:
+        return {
+            'num_nodes': num_nodes,
+            'num_edges': num_edges,
+            'is_dag': True,
+            'message': 'No edges provided, but nodes exist.'
+        }
 
     # Create a directed graph and add nodes and edges
     G = nx.DiGraph()
@@ -40,5 +61,6 @@ async def parse_pipeline(pipeline: Pipeline):
     return {
         'num_nodes': num_nodes,
         'num_edges': num_edges,
-        'is_dag': is_dag
+        'is_dag': is_dag,
+        'message': 'Pipeline parsed successfully.'
     }

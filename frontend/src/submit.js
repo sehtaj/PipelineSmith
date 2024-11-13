@@ -21,7 +21,7 @@ export const SubmitButton = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nodes, edges }),
+        body: JSON.stringify({ nodes, edges }), // Send nodes and edges as JSON
       });
 
       if (!response.ok) {
@@ -30,7 +30,7 @@ export const SubmitButton = () => {
 
       const data = await response.json();
       setAlertData(
-        `Nodes: ${data.num_nodes}, Edges: ${data.num_edges}, DAG: ${data.is_dag ? 'Yes' : 'No'}`
+        `Nodes: ${data.num_nodes}, Edges: ${data.num_edges}, DAG: ${data.is_dag ? 'Yes' : 'No'}\n${data.message}`
       );
       setOpen(true);
     } catch (error) {
@@ -44,7 +44,7 @@ export const SubmitButton = () => {
     <Box display="flex" alignItems="center" justifyContent="center" mt={2}>
       <Button
         variant="contained"
-        onClick={handleSubmit}
+        onClick={handleSubmit} // Call handleSubmit on click
         sx={{
           backgroundColor: '#6d28d9',
           color: '#ffffff',
